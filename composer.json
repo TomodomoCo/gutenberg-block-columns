@@ -1,0 +1,23 @@
+{
+  "name": "tomodomo/block-columns",
+  "description": "Variable-width columns block for Gutenberg",
+  "type": "wordpress-plugin",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Tomodomo",
+      "email": "hello@tomodomo.co"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "installer-name": "tomodomo-block-columns"
+  },
+  "require": {
+    "php": "^7.0"
+  }
+}

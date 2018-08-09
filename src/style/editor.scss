@@ -1,0 +1,82 @@
+/**
+ * Inspector design
+ */
+.columns__column {
+	display: flex;
+	margin-bottom: 1em;
+	align-items: flex-end;
+
+	.components-base-control.components-base-control {
+		flex: 1;
+		margin: 0;
+	}
+}
+
+	.columns__button--delete {
+		padding: 0;
+		margin-left: 1em;
+		height: 30px; // 28px + borders (height of the adjacent <select>)
+	}
+
+	.button.columns__button--add {
+		margin-top: 0.25em;
+		width: 100%;
+
+		.dashicon {
+			vertical-align: middle;
+		}
+	}
+
+/**
+ * In-editor columns
+ */
+.wp-block-tomodomoco-columns {
+	display: block;
+	padding-left: 1rem;
+	padding-right: 1rem;
+
+	.editor-block-list__block[data-align="full"] & {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+
+	& > .editor-inner-blocks {
+		& > .editor-block-list__layout {
+			display: flex;
+
+			& > .editor-block-list__block {
+				width: 100%;
+
+				&,
+				& .editor-block-list__block,
+				& .editor-default-block-appender {
+					max-width: none;
+				}
+
+				&[data-column-width="0.25"] {
+					width: 25%;
+				}
+
+				&[data-column-width^="0.33"] {
+					width: 33.3%;
+				}
+
+				&[data-column-width="0.5"] {
+					width: 50%;
+				}
+
+				&[data-column-width^="0.66"] {
+					width: 66.6%;
+				}
+
+				&[data-column-width="0.75"] {
+					width: 75%;
+				}
+
+				&[data-column-width="1"] {
+					width: 100%;
+				}
+			}
+		}
+	}
+}

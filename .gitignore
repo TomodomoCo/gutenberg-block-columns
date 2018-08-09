@@ -1,0 +1,37 @@
+# Compiled files and dependencies
+vendor/
+node_modules/
+bower_components/
+
+# Hidden files, caches, and misc.
+.sass-cache
+.DS_Store
+cache
+.cache
+npm-debug.log
+__init__.py
+
+# Credentials
+s3.json
+credentials.json
+
+# OS or Editor folders
+.DS_Store
+Thumbs.db
+.cache
+.project
+.settings
+.tmproj
+*.esproj
+nbproject
+*.sublime-project
+*.sublime-workspace
+.vscode
+
+#build
+build
+languages/*.pot
+
+# Project Notes
+TODO.md
+NOTES.md
