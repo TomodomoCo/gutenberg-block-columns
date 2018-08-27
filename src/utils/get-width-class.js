@@ -3,9 +3,8 @@
  *
  * @param {integer} width column width
  */
-const getWidthClass = (width) => {
+const getWidthClass = width => {
   let widthClass
-
   switch (width) {
     case 0.25:
       widthClass = 'col-3_md-6_sm-12'

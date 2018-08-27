@@ -8,7 +8,7 @@ import { sum } from 'lodash'
  *
  * @param {array} columns array from attribute
  */
-const canAddColumns = (columns) => {
+const canAddColumns = columns => {
   if (sum(columns) < 1) {
     if (columns.length < 4) {
       return true

@@ -43,36 +43,40 @@ class Columns
 			return;
 		}
 
+		$block_js   = 'build/script.js';
+		$block_css  = 'build/style.css';
+		$editor_css = 'build/editor.css';
+
 		// Block JS
 		wp_register_script(
 			'tomodomo-block-column-js-editor',
-			TOMODOMO_BLOCK_COLUMN_PLUGIN_URL . 'build/script.js',
+			TOMODOMO_BLOCK_COLUMN_PLUGIN_URL . $block_js,
 			[
 				'wp-i18n',
 				'wp-blocks',
 				'wp-element',
 			],
-			filemtime(TOMODOMO_BLOCK_COLUMN_PLUGIN_DIR . 'build/script.js')
+			filemtime(TOMODOMO_BLOCK_COLUMN_PLUGIN_DIR . $block_js)
 		);
 
 		// Global style
 		wp_register_style(
 			'tomodomo-block-column-css-main',
-			TOMODOMO_BLOCK_COLUMN_PLUGIN_URL . 'build/style.css',
+			TOMODOMO_BLOCK_COLUMN_PLUGIN_URL . $block_css,
 			[],
-			filemtime(TOMODOMO_BLOCK_COLUMN_PLUGIN_DIR . 'build/style.css')
+			filemtime(TOMODOMO_BLOCK_COLUMN_PLUGIN_DIR . $block_css)
 		);
 
 		// Editor style
 		wp_register_style(
 			'tomodomo-block-column-css-editor',
-			TOMODOMO_BLOCK_COLUMN_PLUGIN_URL . 'build/editor.css',
+			TOMODOMO_BLOCK_COLUMN_PLUGIN_URL . $editor_css,
 			[],
-			filemtime(TOMODOMO_BLOCK_COLUMN_PLUGIN_DIR . 'build/editor.css')
+			filemtime( TOMODOMO_BLOCK_COLUMN_PLUGIN_DIR . $editor_css )
 		);
 
 		// Register the block
-		register_block_type('tomodomo/columns', [
+		register_block_type('tomodomoco/tomodomocolumn', [
 			'style'         => 'tomodomo-block-column-css-main',
 			'editor_style'  => 'tomodomo-block-column-css-editor',
 			'editor_script' => 'tomodomo-block-column-js-editor',

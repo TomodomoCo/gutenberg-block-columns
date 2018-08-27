@@ -15,14 +15,10 @@ import options from '../data/options'
  * @param {array} columns columns array from attribute
  */
 const isDisabled = (currentOption, columns) => {
-  // Default to disabled
-  let isDisabled = false
+  let isDisabled = false // Default for disabled
+  const totalWidth = sum(columns) // Calculate colum width
 
-  // Calculate column width
-  const totalWidth = sum(columns)
-
-  if (0 === currentOption || 1 === columns.length)
-    return
+  if (currentOption === 0 || columns.length === 1) return
 
   // Display width options based on first selected width
   switch (totalWidth) {

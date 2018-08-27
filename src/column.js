@@ -18,14 +18,14 @@ registerBlockType('tomodomo/column', {
   title: __('Column'),
   parent: ['tomodomo/columns'],
   icon: 'columns',
-  description: __('A single column within a columns block.'),
+  description: __('A single wrapper column within a columns block.'),
   category: 'common',
   attributes: {
     columnWidth: {
       type: 'string',
     },
   },
-  getEditWrapperProps( attributes ) {
+  getEditWrapperProps (attributes) {
     var wrapperAttributes = {
       'data-column-class': attributes.className,
       'data-column-width': attributes.columnWidth,
@@ -33,18 +33,18 @@ registerBlockType('tomodomo/column', {
 
     return wrapperAttributes
   },
-  edit({ className }) {
+  edit ({ className }) {
     return (
       <div>
-        <InnerBlocks templateLock={false} />
+        <InnerBlocks />
       </div>
     )
   },
-  save() {
+  save () {
     return (
       <div>
         <InnerBlocks.Content />
       </div>
     )
-  }
+  },
 })

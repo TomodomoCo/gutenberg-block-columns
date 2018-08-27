@@ -1,6 +1,8 @@
 # Columns Block for Gutenberg
 
-Ever wanted to add columns with variable widths on your Gutenberg page? This block provides an alternative to the built-in Gutenberg Columns block that supports variable width columns and more.
+Ever wanted to add columns with variable widths on your Gutenberg page? This block provides the solution.
+
+> **This block is a work in progress.** We _strongly_ recommend you avoid using it in production environments.
 
 ## Installation
 

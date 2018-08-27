@@ -24,13 +24,13 @@ registerBlockType('tomodomo/columns', {
   icon: {
     background: '#963f69',
     foreground: '#FFFFFF',
-    src: 'columns'
+    src: 'columns',
   },
   category: 'layout',
   attributes: {
     columns: {
       type: 'array',
-      default: []
+      default: [],
     },
     backgroundColor: {
       type: 'string',
@@ -44,7 +44,10 @@ registerBlockType('tomodomo/columns', {
   edit: Editor,
   save: Renderer,
   supports: {
-    align: ['wide', 'full'],
+    align: [
+      'wide',
+      'full',
+    ],
     customClassName: false,
-  }
+  },
 })

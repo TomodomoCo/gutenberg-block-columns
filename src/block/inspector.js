@@ -12,7 +12,6 @@ import {
   Button,
   IconButton,
   BaseControl,
-  PanelRow,
   PanelColor,
 } from '@wordpress/components'
 import {
@@ -31,7 +30,6 @@ import { __ } from '@wordpress/i18n'
  */
 import canAddColumns from '../utils/can-add-columns'
 import getWidthClass from '../utils/get-width-class'
-import isDisabled from '../utils/is-disabled'
 import options from '../data/options'
 
 /**
@@ -39,24 +37,22 @@ import options from '../data/options'
  * @param {object} props component props
  * @returns {object} Component
  */
-const Inspector = (props) => {
-  const {
-    attributes: {
-      columns,
-    },
-    setAttributes,
-    clientId,
-    setBackgroundColor,
-    backgroundColor,
-    setTextColor,
-    textColor,
-  } = props
-
+const Inspector = ({
+  attributes: {
+    columns,
+  },
+  setAttributes,
+  clientId,
+  setBackgroundColor,
+  backgroundColor,
+  setTextColor,
+  textColor,
+}) => {
   // Add Column
   const onAddColumn = () => {
     const newColumn = 0
 
-    const block = createBlock('tomodomo/column', {
+    const block = createBlock('tomodomoco/column', {
       columnWidth: 0,
       className: '',
     })
@@ -81,7 +77,7 @@ const Inspector = (props) => {
     // Update the correct block's attributes
     dispatch('core/editor').updateBlockAttributes(col.clientId, {
       columnWidth: updatedColumns[colIndex],
-      className:   getWidthClass(updatedColumns[colIndex]),
+      className: getWidthClass(updatedColumns[colIndex]),
     })
 
     setAttributes({
@@ -110,7 +106,7 @@ const Inspector = (props) => {
   // Inspector Controls
   return (
     <InspectorControls>
-      <PanelBody title={__('Columns Settings')} initialOpen={true}>
+      <PanelBody title={__('Columns Settings')} initialOpen>
         {columns.map((column, index) => (
           <Fragment key={`column-${index}-width`}>
             <div className='columns__column'>
@@ -121,7 +117,7 @@ const Inspector = (props) => {
                   className='components-select-control__input'
                   onChange={event => onChangeWidth(event, index)}
                 >
-                  {options.ColumnWidths.map((option, index) => (
+                  {options.columnWidths.map((option, index) => (
                     <option
                       key={`${option.label}-${option.label}-${index}`}
                       value={option.value}

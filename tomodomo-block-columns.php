@@ -6,8 +6,8 @@
  * Author: Tomodomo
  * Author URI: https://tomodomo.co
  * Version: 3.0.0
- * Text Domain: tomodomo-block-column
- * Requires at least: 4.9.8
+ * Text Domain: tomodomo-blcok-column
+ * Requires at least: 4.9.6
  * Require PHP: 7.0
  * License: MIT
  */

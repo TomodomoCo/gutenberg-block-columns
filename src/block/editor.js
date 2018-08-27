@@ -2,7 +2,7 @@
  * External dependencies
  */
 import classnames from 'classnames'
-import { filter, sum } from 'lodash'
+import { sum } from 'lodash'
 
 /**
  * WordPress Dependencies
@@ -10,12 +10,7 @@ import { filter, sum } from 'lodash'
 import { __ } from '@wordpress/i18n'
 import { Placeholder } from '@wordpress/components'
 import {
-  dispatch,
-  select,
-} from '@wordpress/data'
-import {
   InnerBlocks,
-  getBlocks,
   withColors,
   getColorClass,
 } from '@wordpress/editor'
@@ -26,10 +21,12 @@ import { Fragment } from '@wordpress/element'
  */
 import Inspector from '../block/inspector'
 
+const ALLOWED_BLOCKS = ['tomodomoco/column']
+
 /**
  * Block edit component
  */
-const Editor = withColors('backgroundColor', 'textColor') ((props) => {
+const Editor = withColors('backgroundColor', 'textColor')((props) => {
   // Variables
   const {
     className,
@@ -68,8 +65,7 @@ const Editor = withColors('backgroundColor', 'textColor') ((props) => {
       <Inspector {...{ ...props }} />
       <div className={classes}>
         <InnerBlocks
-          allowedBlocks={['tomodomo/column']}
-          templateLock='all'
+          allowedBlocks={ALLOWED_BLOCKS}
         />
       </div>
     </Fragment>

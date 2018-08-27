@@ -1,8 +1,7 @@
 /**
  * External dependencies
  */
-import classnames from "classnames"
-import { filter } from "lodash"
+import classnames from 'classnames'
 
 /**
  * WordPress dependencies
@@ -10,7 +9,7 @@ import { filter } from "lodash"
 import {
   InnerBlocks,
   getColorClass,
-} from "@wordpress/editor"
+} from '@wordpress/editor'
 
 /**
  * Block render component
@@ -24,8 +23,6 @@ const Renderer = (props) => {
       textColor,
     },
   } = props
-
-  const columnLayout = filter(columns, column => 0 !== column)
 
   const classes = classnames(
     className,
