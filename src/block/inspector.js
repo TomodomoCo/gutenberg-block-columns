@@ -37,35 +37,43 @@ import options from '../data/options'
  * @param {object} props component props
  * @returns {object} Component
  */
-const Inspector = ({
-  attributes: {
-    columns,
-  },
-  setAttributes,
-  clientId,
-  setBackgroundColor,
-  backgroundColor,
-  setTextColor,
-  textColor,
-}) => {
-  // Add Column
+const Inspector = (props) => {
+  const {
+    attributes: {
+      columns,
+    },
+    backgroundColor,
+    clientId,
+    setAttributes,
+    setBackgroundColor,
+    setTextColor,
+    textColor,
+  } = props
+
+  /**
+   * Add Column
+   */
   const onAddColumn = () => {
     const newColumn = 0
 
-    const block = createBlock('tomodomoco/column', {
+    // Create a new block
+    const block = createBlock('tomodomo/column', {
       columnWidth: 0,
       className: '',
     })
 
-    // insert the block
+    // Insert the block
     dispatch('core/editor').insertBlock(block, columns.length, clientId)
 
+    // Update the columns attribute
     setAttributes({
       columns: columns.concat(newColumn),
     })
   }
 
-  // Update Column
+  /**
+   * Update Column
+   */
   const onChangeWidth = (event, colIndex) => {
     // Grab the current block
     var col = select('core/editor').getBlocksByClientId(clientId)[0].innerBlocks[colIndex]
@@ -85,7 +93,9 @@ const Inspector = ({
     })
   }
 
-  // Delete Column
+  /**
+   * Delete Column
+   */
   const onDeleteColumn = (colIndex) => {
     // Grab all the blocks
     var col = select('core/editor').getBlocksByClientId(clientId)[0].innerBlocks[colIndex]

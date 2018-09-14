@@ -12,7 +12,7 @@ import { Placeholder } from '@wordpress/components'
 import {
   InnerBlocks,
   withColors,
-  getColorClass,
+  getColorClassName,
 } from '@wordpress/editor'
 import { Fragment } from '@wordpress/element'
 
@@ -21,7 +21,7 @@ import { Fragment } from '@wordpress/element'
  */
 import Inspector from '../block/inspector'
 
-const ALLOWED_BLOCKS = ['tomodomoco/column']
+const ALLOWED_BLOCKS = ['tomodomo/column']
 
 /**
  * Block edit component
@@ -29,19 +29,19 @@ const ALLOWED_BLOCKS = ['tomodomoco/column']
 const Editor = withColors('backgroundColor', 'textColor')((props) => {
   // Variables
   const {
-    className,
     attributes: {
       columns,
       backgroundColor,
       textColor,
     },
+    className,
   } = props
 
   const classes = classnames(
     className,
     `has-${columns.length}-columns`,
-    getColorClass('background', backgroundColor),
-    getColorClass('text', textColor),
+    getColorClassName('background', backgroundColor),
+    getColorClassName('text', textColor),
   )
 
   // UI for columns without any columns
@@ -64,9 +64,7 @@ const Editor = withColors('backgroundColor', 'textColor')((props) => {
     <Fragment>
       <Inspector {...{ ...props }} />
       <div className={classes}>
-        <InnerBlocks
-          allowedBlocks={ALLOWED_BLOCKS}
-        />
+        <InnerBlocks allowedBlocks={ALLOWED_BLOCKS} />
       </div>
     </Fragment>
   )

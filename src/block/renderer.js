@@ -8,7 +8,7 @@ import classnames from 'classnames'
  */
 import {
   InnerBlocks,
-  getColorClass,
+  getColorClassName,
 } from '@wordpress/editor'
 
 /**
@@ -28,8 +28,8 @@ const Renderer = (props) => {
     className,
     'grid',
     `has-${columns.length}-columns`,
-    getColorClass('background', backgroundColor),
-    getColorClass('text', textColor),
+    getColorClassName('background', backgroundColor),
+    getColorClassName('text', textColor),
   )
 
   // UI

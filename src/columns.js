@@ -12,15 +12,16 @@ import Renderer from './block/renderer'
 import './style/style.scss'
 import './style/editor.scss'
 
-/**
- * Register Block
- */
-registerBlockType('tomodomo/columns', {
+let settings = {
   title: __('Columns'),
   description: __(
     'This is a block to allowing you to create simple custom column layouts.'
   ),
-  keyword: [__('column'), __('grid'), __('tomodomo')],
+  keyword: [
+    __('column'),
+    __('grid'),
+    __('tomodomo'),
+  ],
   icon: {
     background: '#963f69',
     foreground: '#FFFFFF',
@@ -28,13 +29,13 @@ registerBlockType('tomodomo/columns', {
   },
   category: 'layout',
   attributes: {
-    columns: {
-      type: 'array',
-      default: [],
-    },
     backgroundColor: {
       type: 'string',
       default: '',
+    },
+    columns: {
+      type: 'array',
+      default: [],
     },
     textColor: {
       type: 'string',
@@ -50,4 +51,26 @@ registerBlockType('tomodomo/columns', {
     ],
     customClassName: false,
   },
-})
+  transform: [{
+    type: 'block',
+    blocks: ['tomodomoco/columns'],
+    transform: (content) => {
+      return createBlock('tomodomo/columns', {
+        content,
+      })
+    },
+  }],
+}
+
+/**
+ * Register block
+ */
+registerBlockType('tomodomo/columns', settings)
+
+/**
+ * Register deprecated block
+ */
+delete settings.transform
+settings.title = __('Columns (Deprecated)')
+settings.supports.inserter = false
+registerBlockType('tomodomoco/columns', settings)

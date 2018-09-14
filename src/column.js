@@ -11,12 +11,11 @@ import { InnerBlocks } from '@wordpress/editor'
 import './style/style.scss'
 import './style/editor.scss'
 
-/**
- * Register block
- */
-registerBlockType('tomodomo/column', {
+let settings = {
   title: __('Column'),
-  parent: ['tomodomo/columns'],
+  parent: [
+    'tomodomo/columns'
+  ],
   icon: 'columns',
   description: __('A single wrapper column within a columns block.'),
   category: 'common',
@@ -47,4 +46,29 @@ registerBlockType('tomodomo/column', {
       </div>
     )
   },
-})
+  transform: [{
+    type: 'block',
+    blocks: ['tomodomoco/column'],
+    transform: (content) => {
+      return createBlock('tomodomo/column', {
+        content,
+      })
+    },
+  }],
+}
+
+/**
+ * Register block
+ */
+registerBlockType('tomodomo/column', settings)
+
+/**
+ * Register deprecated block
+ */
+settings.title  = __('Column (deprecated)')
+settings.parent = ['tomodomoco/columns']
+delete settings.transform
+settings.supports = {
+  inserter: false,
+}
+registerBlockType('tomodomoco/column', settings)
