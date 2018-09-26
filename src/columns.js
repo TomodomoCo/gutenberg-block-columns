@@ -50,6 +50,7 @@ var settings = {
       'full',
     ],
     customClassName: false,
+    inserter: true,
   },
   transform: [{
     type: 'block',
@@ -71,7 +72,5 @@ registerBlockType('tomodomo/columns', settings)
  * Register deprecated block
  */
 delete settings.transform
-settings.supports = {
-  inserter: false,
-}
+settings.supports.inserter = false
 registerBlockType('tomodomoco/columns', settings)
