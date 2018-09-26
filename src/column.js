@@ -65,9 +65,8 @@ registerBlockType('tomodomo/column', settings)
 /**
  * Register deprecated block
  */
+settings.title = __('Column (Old)'),
 settings.parent = ['tomodomoco/columns']
 delete settings.transform
-settings.supports = {
-  inserter: false,
-}
+settings.supports.inserter = false
 registerBlockType('tomodomoco/column', settings)
