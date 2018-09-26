@@ -12,7 +12,7 @@ import Renderer from './block/renderer'
 import './style/style.scss'
 import './style/editor.scss'
 
-let settings = {
+var settings = {
   title: __('Columns'),
   description: __(
     'This is a block to allowing you to create simple custom column layouts.'
@@ -70,7 +70,8 @@ registerBlockType('tomodomo/columns', settings)
 /**
  * Register deprecated block
  */
-settings.title = __('Columns (Old)'),
 delete settings.transform
-settings.supports.inserter = false
+settings.supports = {
+  inserter: false,
+}
 registerBlockType('tomodomoco/columns', settings)

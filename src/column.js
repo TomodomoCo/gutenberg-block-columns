@@ -11,7 +11,7 @@ import { InnerBlocks } from '@wordpress/editor'
 import './style/style.scss'
 import './style/editor.scss'
 
-let settings = {
+var settings = {
   title: __('Column'),
   parent: [
     'tomodomo/columns'
@@ -19,6 +19,9 @@ let settings = {
   icon: 'columns',
   description: __('A single wrapper column within a columns block.'),
   category: 'common',
+  support: {
+    inserter: false,
+  },
   attributes: {
     columnWidth: {
       type: 'string',
@@ -34,9 +37,7 @@ let settings = {
   },
   edit ({ className }) {
     return (
-      <div>
-        <InnerBlocks />
-      </div>
+      <InnerBlocks templateLock={false} />
     )
   },
   save () {
@@ -65,8 +66,6 @@ registerBlockType('tomodomo/column', settings)
 /**
  * Register deprecated block
  */
-settings.title = __('Column (Old)'),
 settings.parent = ['tomodomoco/columns']
 delete settings.transform
-settings.supports.inserter = false
 registerBlockType('tomodomoco/column', settings)

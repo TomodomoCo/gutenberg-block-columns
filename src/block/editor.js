@@ -64,7 +64,10 @@ const Editor = withColors('backgroundColor', 'textColor')((props) => {
     <Fragment>
       <Inspector {...{ ...props }} />
       <div className={classes}>
-        <InnerBlocks allowedBlocks={ALLOWED_BLOCKS} />
+        <InnerBlocks
+          allowedBlocks={ALLOWED_BLOCKS}
+          templateLock="all"
+        />
       </div>
     </Fragment>
   )
