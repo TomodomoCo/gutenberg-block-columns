@@ -26,7 +26,7 @@ const Renderer = (props) => {
 
   const classes = classnames(
     className,
-    'grid',
+    'gridlex',
     `has-${columns.length}-columns`,
     getColorClassName('background', backgroundColor),
     getColorClassName('text', textColor),

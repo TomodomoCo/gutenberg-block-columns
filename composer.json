@@ -9,6 +9,12 @@
       "email": "hello@tomodomo.co"
     }
   ],
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/tomodomoco/wp-asset-registrar"
+    }
+  ],
   "minimum-stability": "dev",
   "prefer-stable": true,
   "config": {
@@ -18,6 +24,14 @@
     "installer-name": "tomodomo-block-columns"
   },
   "require": {
-    "php": "^7.0"
+    "php": "^7.0",
+    "tomodomo/wp-asset-registrar": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "Tomodomo\\Gutenberg\\Block\\": [
+        "lib/"
+      ]
+    }
   }
 }

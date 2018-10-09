@@ -40,6 +40,7 @@ const externals = {
   react: "React",
   lodash: "lodash"
 };
+
 // WordPress dependences
 const wpDependencies = [
   "components",
@@ -55,6 +56,7 @@ const wpDependencies = [
   "plugins",
   "apiRequest"
 ];
+
 wpDependencies.forEach(wpDependency => {
   externals["@wordpress/" + wpDependency] = {
     this: ["wp", wpDependency]
@@ -68,7 +70,7 @@ const config = {
   output: {
     filename: "build/script.js",
     path: __dirname,
-    library: ["myblock", "[name]"],
+    library: ["tomodomo-block-columns", "[name]"],
     libraryTarget: "this"
   },
   resolve: {
