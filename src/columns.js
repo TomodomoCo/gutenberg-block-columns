@@ -1,18 +1,19 @@
 /**
- * WordPress Dependencies
+ * External dependencies
  */
 import { __ } from '@wordpress/i18n'
 import { registerBlockType } from '@wordpress/blocks'
+import { cloneDeep } from 'lodash'
 
 /**
- * Internal Dependencies
+ * Internal dependencies
  */
 import Editor from './block/editor'
 import Renderer from './block/renderer'
 import './style/style.scss'
 import './style/editor.scss'
 
-var settings = {
+let settings = {
   title: __('Columns'),
   description: __(
     'This is a block to allowing you to create simple custom column layouts.'
@@ -71,6 +72,7 @@ registerBlockType('tomodomo/columns', settings)
 /**
  * Register deprecated block
  */
-delete settings.transform
-settings.supports.inserter = false
-registerBlockType('tomodomoco/columns', settings)
+let deprecatedSettings = cloneDeep(settings)
+delete deprecatedSettings.transform
+deprecatedSettings.supports.inserter = false
+registerBlockType('tomodomoco/columns', deprecatedSettings)

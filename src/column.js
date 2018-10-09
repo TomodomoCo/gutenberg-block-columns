@@ -1,9 +1,10 @@
 /**
- * WordPress dependencies
+ * External dependencies
  */
 import { __ } from '@wordpress/i18n'
 import { registerBlockType } from '@wordpress/blocks'
 import { InnerBlocks } from '@wordpress/editor'
+import { cloneDeep } from 'lodash'
 
 /**
  * Internal dependencies
@@ -66,6 +67,7 @@ registerBlockType('tomodomo/column', settings)
 /**
  * Register deprecated block
  */
-settings.parent = ['tomodomoco/columns']
-delete settings.transform
-registerBlockType('tomodomoco/column', settings)
+let deprecatedSettings = cloneDeep(settings)
+deprecatedSettings.parent = ['tomodomoco/columns']
+delete deprecatedSettings.transform
+registerBlockType('tomodomoco/column', deprecatedSettings)
