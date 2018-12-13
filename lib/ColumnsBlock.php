@@ -44,9 +44,12 @@ class ColumnsBlock
         // Enqueue editor JS
         $registrar->addScript('tomodomo-block-columns-js', 'script.js', [
             'dependencies' => [
-                'wp-i18n',
                 'wp-blocks',
+                'wp-components',
+				'wp-data',
+				'wp-editor',
                 'wp-element',
+                'wp-i18n',
             ],
         ]);
 

@@ -12,7 +12,6 @@ import {
   Button,
   IconButton,
   BaseControl,
-  PanelColor,
 } from '@wordpress/components'
 import {
   dispatch,
@@ -21,6 +20,7 @@ import {
 import {
   ColorPalette,
   InspectorControls,
+  PanelColorSettings,
 } from '@wordpress/editor'
 import { Fragment } from '@wordpress/element'
 import { __ } from '@wordpress/i18n'
@@ -157,12 +157,22 @@ const Inspector = (props) => {
           {__('Add a Column')}
         </IconButton>
       </PanelBody>
-      <PanelColor title={__('Background Color')} colorValue={backgroundColor.value} colorName={backgroundColor.name}>
-        <ColorPalette onChange={setBackgroundColor} value={backgroundColor.value} />
-      </PanelColor>
-      <PanelColor title={__('Text Color')} colorValue={textColor.value} colorName={textColor.name}>
-        <ColorPalette onChange={setTextColor} value={textColor.value} />
-      </PanelColor>
+      <PanelColorSettings
+        title={__('Color Settings')}
+        initialOpen={false}
+        colorSettings={[
+          {
+            value: textColor.color,
+            onChange: setTextColor,
+            label: __('Text Color'),
+          },
+          {
+            value: backgroundColor.color,
+            onChange: setBackgroundColor,
+            label: __('Background Color'),
+          },
+        ]}
+      />
     </InspectorControls>
   )
 }

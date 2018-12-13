@@ -19,7 +19,7 @@ import { Fragment } from '@wordpress/element'
 /**
  * Internal Dependencies
  */
-import Inspector from '../block/inspector'
+import Inspector from './inspector'
 
 const ALLOWED_BLOCKS = ['tomodomo/column']
 
